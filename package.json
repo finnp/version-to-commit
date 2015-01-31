@@ -1,0 +1,27 @@
+{
+  "name": "version-to-commit",
+  "version": "1.0.0",
+  "description": "Get a git commit sha for an npm version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finnp/version-to-commit.git"
+  },
+  "keywords": [
+    "git",
+    "npm",
+    "sha",
+    "commit",
+    "checkout",
+    "version"
+  ],
+  "author": "Finn Pauls",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finnp/version-to-commit/issues"
+  },
+  "homepage": "https://github.com/finnp/version-to-commit"
+}
