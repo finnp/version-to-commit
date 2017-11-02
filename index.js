@@ -1,13 +1,23 @@
 var request = require('request')
-var registry = 'https://registry.npmjs.org/'
 
-module.exports = function (module, version, cb) {
+module.exports = function (module, version, registry, cb) {
   if(!module) throw new Error('no module specified')
   if(typeof version == 'function') {
     cb = version
     version = null
   }
-  version = version || 'latest'
+  if (typeof registry === 'function') {
+    cb = registry
+    registry = null
+  }
+  if (module.charAt(0) === '@') {
+    module = module.replace(/\//g, '%2f');
+  }
+  registry = registry || 'https://registry.npmjs.org/';
+  version = version || 'latest';
+  if (registry.charAt(registry.length - 1) !== '/') {
+    registry += '/';
+  }
   request(registry + module + '/' + version, {json: true}, function (err, res, pkg) {
     if(err) return cb(err)
     if(pkg.error) return cb(new Error(pkg.error))
@@ -15,4 +25,3 @@ module.exports = function (module, version, cb) {
     cb(null, pkg.gitHead)
   })
 }
-
