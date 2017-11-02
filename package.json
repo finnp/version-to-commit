@@ -4,6 +4,7 @@
   "description": "Get a git commit sha for an npm version",
   "main": "index.js",
   "scripts": {
+    "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": "./cli.js",
@@ -27,5 +28,8 @@
   "homepage": "https://github.com/finnp/version-to-commit",
   "dependencies": {
     "request": "^2.51.0"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
   }
 }
